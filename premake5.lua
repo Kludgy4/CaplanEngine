@@ -2,7 +2,7 @@ include "dependencies.lua"
 
 workspace "Caplan"
     architecture "x86_64"
-    startproject "Engine"
+    startproject "Game"
     
     configurations {
         "Debug",
@@ -31,10 +31,28 @@ newaction {
         os.rmdir("./bin-int")
         print("Removing VStudio files")
         os.rmdir("./.vs")
-        os.remove("**.sln")
-        os.remove("**.vcxproj")
-        os.remove("**.vcxproj.filters")
-        os.remove("**.vcxproj.user")
+	
+	local function removeFiles(pattern)
+            local excludedFolders = { "glfw", "imgui", "glm", "spdlog", "premake" }
+            local files = os.matchfiles(pattern)
+            for _, file in ipairs(files) do
+                local skip = false
+                for _, folder in ipairs(excludedFolders) do
+                    if file:match("/" .. folder .. "/") then
+                        skip = true
+                        break
+                    end
+                end
+                if not skip then
+                    os.remove(file)
+                end
+            end
+        end
+	
+        removeFiles("**.sln")
+        removeFiles("**.vcxproj")
+        removeFiles("**.vcxproj.filters")
+        removeFiles("**.vcxproj.user")
         print("Done")
     end
 }

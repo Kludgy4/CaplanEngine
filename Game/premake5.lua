@@ -22,6 +22,7 @@ project "Game"
 
     includedirs {
         "include",
+        "../Engine/include",
 	    "%{IncludeDir.glfw}",
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.vulkansdk}",
