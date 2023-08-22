@@ -10,7 +10,7 @@ project "Game"
 
     libdirs { "%{VULKAN_SDK}/Lib" }
     links {
-		"glfw",
+        "glfw",
         "Engine"
 	}
 

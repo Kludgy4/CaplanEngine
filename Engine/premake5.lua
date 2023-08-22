@@ -11,7 +11,8 @@ project "Engine"
     libdirs { "%{VULKAN_SDK}/Lib" }
     links {
         "vulkan-1.lib",
-		"glfw"
+		"glfw",
+        "imgui"
 	}
 
     includedirs {

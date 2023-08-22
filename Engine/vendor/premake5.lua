@@ -70,3 +70,32 @@ project "glfw"
             "glfw/src/posix_thread.c"
         }
         defines { "_GLFW_X11" }
+
+project "imgui"
+    kind "StaticLib"
+    language "C++"
+
+    targetdir("../../bin/" .. outputdir .. "/%{prj.name}")
+    objdir("../../bin-int/" .. outputdir .. "/%{prj.name}")
+
+    files {
+        "imgui/imconfig.h",
+        "imgui/imgui.cpp",
+        "imgui/imgui.h",
+        "imgui/imgui_demo.cpp",
+        "imgui/imgui_draw.cpp",
+        "imgui/imgui_internal.h",
+        "imgui/imgui_tables.cpp",
+        "imgui/imgui_widgets.cpp",
+        "imgui/imgui_rectpack.h",
+        "imgui/imgui_textedit.h",
+        "imgui/imgui_truetype.h"
+    }
+
+    filter "system:windows"
+        systemversion "latest"
+        cppdialect "C++17"
+        staticruntime "on"
+
+    filter {"system:windows", "configurations:Release"}
+        buildoptions "/MT"
