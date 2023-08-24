@@ -7,11 +7,21 @@ workspace "Caplan"
     configurations {
         "Debug",
         "Release"
-    }    
+    }
+
+    filter "system:Windows"
+        defines { "CP_WINDOWS" }
+
+    -- filter "system:Unix"
+    --     defines { "CP_LINUX" }
+    -- 
+    -- filter "system:Mac"
+    --     defines { "CP_MAC" }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include premake compilation for vendor projects
+include "vendor"
 include "Engine/vendor"
 --include "vendor/spdlog"
 --include "vendor/imgui"

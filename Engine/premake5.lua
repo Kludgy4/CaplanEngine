@@ -5,15 +5,19 @@ project "Engine"
     staticruntime "on"
     systemversion "latest"
 
+    pchheader "engpch.h"
+    pchsource "src/engpch.cpp"
+
     targetdir("../bin/" .. outputdir .. "/%{prj.name}")
     objdir("../bin-int/" .. outputdir .. "/%{prj.name}")
 
     libdirs { "%{VULKAN_SDK}/Lib" }
     links {
-        "vulkan-1.lib",
-		"glfw",
-        "imgui"
-	}
+        "glfw",
+        "imgui",
+	"spdlog",
+	"vulkan-1.lib"
+    }
 
     includedirs {
         "include",

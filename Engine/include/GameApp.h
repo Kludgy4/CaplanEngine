@@ -1,6 +1,8 @@
 #pragma once
+#include <memory>
+#include <vector>
 #include "Layer.h"
-#include "vector"
+#include "Window.h"
 
 class GameApp {
 public:
@@ -8,9 +10,10 @@ public:
 	virtual ~GameApp();
 
 	void PushLayer(Layer layer);
-	void PopLayer(Layer layer);
 
 	void run();
 private:
-	std::vector<Layer> layerStack;
+	bool running = true;
+	std::vector<Layer> layerVec;
+	std::unique_ptr<Window> window;
 };
