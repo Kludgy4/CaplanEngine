@@ -1,14 +1,14 @@
 #pragma once
-
+#pragma warning(push, 0)
 #include "spdlog/spdlog.h"
+#pragma warning(pop)
 
 class Log {
 public:
 	static void InitLoggers();
 
-	inline static std::shared_ptr<spdlog::logger> getEngineLogger() { return engineLogger; }
-	inline static std::shared_ptr<spdlog::logger> getClientLogger() { return clientLogger; }
-
+	static std::shared_ptr<spdlog::logger>& getEngineLogger() { return engineLogger; }
+	static std::shared_ptr<spdlog::logger>& getClientLogger() { return clientLogger; }
 private:
 	static std::shared_ptr<spdlog::logger> engineLogger;
 	static std::shared_ptr<spdlog::logger> clientLogger;

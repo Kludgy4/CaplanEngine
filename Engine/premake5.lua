@@ -15,7 +15,6 @@ project "Engine"
     links {
         "glfw",
         "imgui",
-	"spdlog",
 	"vulkan-1.lib"
     }
 
@@ -30,6 +29,7 @@ project "Engine"
     
     files {
         "src/**.cpp",
+        "src/**.h",
         "include/**.h",
         "include/**.hpp",
     }

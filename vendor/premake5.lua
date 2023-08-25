@@ -1,3 +1,4 @@
+--[=====[
 project "spdlog"
     kind "StaticLib"
     language "C++"
@@ -30,3 +31,4 @@ project "spdlog"
     filter "configurations:Release"
         runtime "Release"
         optimize "on"
+--]=====]

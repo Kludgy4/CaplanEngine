@@ -1,4 +1,5 @@
 #pragma once
 
-#include "GameApp.h"
+#include "Log.h"
 #include "EntryPoint.h"
+#include "GameApp.h"

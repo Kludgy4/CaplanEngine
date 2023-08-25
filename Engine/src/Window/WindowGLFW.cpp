@@ -2,10 +2,11 @@
 #include "Log.h"
 #include "WindowGLFW.h"
 
-WindowGLFW::WindowGLFW(std::string&& title = "GLFW Window", uint32_t width = 1024, uint32_t height = 768)
-	: Window(std::move(title), width, height)
+WindowGLFW::WindowGLFW(std::string title = "GLFW Window", uint32_t width = 1024, uint32_t height = 768)
+	: Window(title, width, height)
 {
 	int glfwInitSuccess = glfwInit();
+
 	if (!glfwInitSuccess) {
 		// TODO: ERROR HANDLING???
 	}

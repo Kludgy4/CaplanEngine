@@ -6,7 +6,8 @@ class Game : public GameApp
 public:
 	Game()
 	{
-
+		Log::InitLoggers();
+		LOG_CLIENT_INFO("Initialised engine/client loggers");
 	}
 
 	~Game()

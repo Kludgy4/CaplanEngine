@@ -5,7 +5,7 @@
 
 class WindowGLFW : public Window {
 public:
-	WindowGLFW(std::string&& title, uint32_t width, uint32_t height);
+	WindowGLFW(std::string title, uint32_t width, uint32_t height);
 	~WindowGLFW();
 
 	void onUpdate();
